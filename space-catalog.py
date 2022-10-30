@@ -62,162 +62,93 @@ FULL_MERCURY_DESC = 'Merkury jest 1 planetą Układu Słonecznego przez \n co je
 
 MERCURY_FACT = ""
 
-#DEFAULT APP SETTINGS
-root = Tk()
-root.title("Kosmiczny katalog")
+#MAKING AN APP WINDOW
+class Root(tk.Tk):
+    def __init__(self):
+        super().__init__()
 
-root.resizable(False, False)
+if __name__ == '__main__':
+    root = Tk()
+    root.title("Kosmiczny katalog")
+    root.resizable(False, False)
 
 #HYPERLINK FUNCTION
 def callback(url):
     webbrowser.open_new_tab(url)
 
+class Opcje:
 
-#FUNCTION FOR PLANET OPTION MENU
+    def __init__(self, image_name, full_text, fact_text, wiki_url):
+        self.image_name = image_name
+        self.full_text = full_text
+        self.fact_text = fact_text
+        self.wiki_url = wiki_url
+
+
+
+ziemia = Opcje("Ziemia.png", FULL_EARTH_DESC, EARTH_FACT, "https://pl.wikipedia.org/wiki/Ziemia")
+mars = Opcje("Mars.png", FULL_MARS_DESC, MARS_FACT, "https://pl.wikipedia.org/wiki/Mars")
+
+planets = [ziemia, mars]
+print(planets)
+
+
 def show(event):
+
+
+    for widget in pierwszy_frame.winfo_children():
+        widget.destroy()
+    for widget in drugi_frame.winfo_children():
+        widget.destroy()
+    for widget in trzeci_frame.winfo_children():
+        widget.destroy()
+
+    link = tk.Label(trzeci_frame, text="Wikipedia", font=('Helveticabold', 10), bg='#121212', fg='green',
+                    cursor="hand2")
+
+
+
     type = clicked.get()
 
-    if type == options_list_planets[0]:
-
-        # IMAGE DISPLAY
-
-        canvas2 = Canvas(root, width=400, height=400, bg='#171717', bd=0, highlightthickness=0, relief='ridge')
-        canvas2.pack()
-        my_img = ImageTk.PhotoImage(Image.open("Merkury.png"))
-        canvas2.place(relx=0.05, rely=0.1, relheight=0.6, relwidth=0.5)
-        canvas2.create_image(225, 210, image=my_img)
-        canvas2.my_img = my_img
-
-        # KILLING WIDGET AFTER ANOTHER BUTTON
-
-        for widget in pierwszy_frame.winfo_children():
-            widget.destroy()
-        for widget in drugi_frame.winfo_children():
-            widget.destroy()
-        for widget in trzeci_frame.winfo_children():
-            widget.destroy()
-
-        # TEXT LABEL
-        # FULL DESCRIPTION
-        text_label = tk.Label(pierwszy_frame, text=FULL_MERCURY_DESC, bg='#121212', fg='white')
-        text_label.pack()
-
-        # FACTS
-        text2_label = tk.Label(drugi_frame, text=MERCURY_FACT, bg='#121212', fg='white')
-        text2_label.pack()
-
-        # LINKS
-        text3_label = tk.Label(trzeci_frame, text="Przydatne linki:", font=('Arial', 15), bg='#121212', fg='white')
-        text3_label.pack()
-
-        # HYPERLINK FUNCTION
-        link = tk.Label(trzeci_frame, text="Wikipedia", font=('Helveticabold', 10), bg='#121212', fg='green',
-                        cursor="hand2")
-        link.pack()
-        link.bind("<Button-1>", lambda e: callback("https://pl.wikipedia.org/wiki/Merkury"))
-
-    if type == options_list_planets[1]:
-
-        # IMAGE DISPLAY
-
-        canvas2 = Canvas(root, width=400, height=400, bg='#171717', bd=0, highlightthickness=0, relief='ridge')
-        canvas2.pack()
-        my_img = ImageTk.PhotoImage(Image.open("Wenus.png"))
-        canvas2.place(relx=0.05, rely=0.1, relheight=0.6, relwidth=0.5)
-        canvas2.create_image(225, 210, image=my_img)
-        canvas2.my_img = my_img
-
-        # KILLING WIDGET AFTER ANOTHER BUTTON
-
-        for widget in pierwszy_frame.winfo_children():
-            widget.destroy()
-        for widget in drugi_frame.winfo_children():
-            widget.destroy()
-        for widget in trzeci_frame.winfo_children():
-            widget.destroy()
-
-        # TEXT LABEL
-        # FULL DESCRIPTION
-        text_label = tk.Label(pierwszy_frame, text=FULL_VENUS_DESC, bg='#121212', fg='white')
-        text_label.pack()
-
-        # FACTS
-        text2_label = tk.Label(drugi_frame, text=VENUS_FACT, bg='#121212', fg='white')
-        text2_label.pack()
-
-        # LINKS
-        text3_label = tk.Label(trzeci_frame, text="Przydatne linki:", font=('Arial', 15), bg='#121212', fg='white')
-        text3_label.pack()
-
-        # HYPERLINK FUNCTION
-        link = tk.Label(trzeci_frame, text="Wikipedia", font=('Helveticabold', 10), bg='#121212', fg='green',cursor="hand2")
-        link.pack()
-        link.bind("<Button-1>", lambda e: callback("https://pl.wikipedia.org/wiki/Wenus"))
     if type == options_list_planets[2]:
 
-        #IMAGE DISPLAY
-
-        canvas2 = Canvas(root, width=400, height=400, bg='#171717', bd=0, highlightthickness=0, relief='ridge')
-        canvas2.pack()
-        my_img = ImageTk.PhotoImage(Image.open("Ziemia.png"))
-        canvas2.place(relx=0.05, rely=0.1, relheight=0.6, relwidth=0.5)
+        # IMAGE DISPLAY
+        my_img = ImageTk.PhotoImage(Image.open(ziemia.image_name))
         canvas2.create_image(225, 210, image=my_img)
         canvas2.my_img = my_img
 
-        #KILLING WIDGET AFTER ANOTHER BUTTON
-
-        for widget in pierwszy_frame.winfo_children():
-            widget.destroy()
-        for widget in drugi_frame.winfo_children():
-            widget.destroy()
-        for widget in trzeci_frame.winfo_children():
-            widget.destroy()
-
-        #TEXT LABEL
-        #FULL DESCRIPTION
-        text_label = tk.Label(pierwszy_frame, text=FULL_EARTH_DESC, bg='#121212', fg='white')
+        # TEXT LABEL
+        # FULL DESCRIPTION
+        text_label = tk.Label(pierwszy_frame, text=ziemia.full_text, bg='#121212', fg='white')
         text_label.pack()
 
-        #FACTS
-        text2_label = tk.Label(drugi_frame, text=EARTH_FACT, bg='#121212', fg='white')
+        # FACTS
+        text2_label = tk.Label(drugi_frame, text=ziemia.fact_text, bg='#121212', fg='white')
         text2_label.pack()
 
-        #LINKS
+        # LINKS
         text3_label = tk.Label(trzeci_frame, text="Przydatne linki:", font=('Arial', 15), bg='#121212', fg='white')
         text3_label.pack()
 
-        #HYPERLINK FUNCTION
-        link = tk.Label(trzeci_frame, text="Wikipedia", font=('Helveticabold', 10), bg='#121212', fg = 'green', cursor="hand2")
+        # HYPERLINK FUNCTION
+
+        link.bind("<Button-1>", lambda e: callback(ziemia.wiki_url))
         link.pack()
-        link.bind("<Button-1>", lambda e:callback("https://pl.wikipedia.org/wiki/Ziemia"))
 
     if type == options_list_planets[3]:
 
         # IMAGE DISPLAY
-
-        canvas2 = Canvas(root, width=400, height=400, bg='#171717', bd=0, highlightthickness=0, relief='ridge')
-        canvas2.pack()
-        my_img = ImageTk.PhotoImage(Image.open("Mars.png"))
-        canvas2.place(relx=0.05, rely=0.1, relheight=0.6, relwidth=0.5)
+        my_img = ImageTk.PhotoImage(Image.open(mars.image_name))
         canvas2.create_image(225, 210, image=my_img)
         canvas2.my_img = my_img
 
-        # KILLING WIDGET AFTER ANOTHER BUTTON
-
-        for widget in pierwszy_frame.winfo_children():
-            widget.destroy()
-        for widget in drugi_frame.winfo_children():
-            widget.destroy()
-        for widget in trzeci_frame.winfo_children():
-            widget.destroy()
-
         # TEXT LABEL
         # FULL DESCRIPTION
-        text_label = tk.Label(pierwszy_frame, text=FULL_MARS_DESC, bg='#121212', fg='white')
+        text_label = tk.Label(pierwszy_frame, text=mars.full_text, bg='#121212', fg='white')
         text_label.pack()
 
         # FACTS
-        text2_label = tk.Label(drugi_frame, text=MARS_FACT, bg='#121212', fg='white')
+        text2_label = tk.Label(drugi_frame, text=mars.fact_text, bg='#121212', fg='white')
         text2_label.pack()
 
         # LINKS
@@ -225,180 +156,34 @@ def show(event):
         text3_label.pack()
 
         # HYPERLINK FUNCTION
-        link = tk.Label(trzeci_frame, text="Wikipedia", font=('Helveticabold', 10), bg='#121212', fg='green',cursor="hand2")
         link.pack()
-        link.bind("<Button-1>", lambda e: callback("https://pl.wikipedia.org/wiki/Mars"))
+        link.bind("<Button-1>", lambda e: callback(mars.wiki_url))
 
-    if type == options_list_planets[4]:
+#FUNCTION FOR PLANET OPTION MENU
 
-        # IMAGE DISPLAY
-
-        canvas2 = Canvas(root, width=400, height=400, bg='#171717', bd=0, highlightthickness=0, relief='ridge')
-        canvas2.pack()
-        my_img = ImageTk.PhotoImage(Image.open("Jowisz.png"))
-        canvas2.place(relx=0.05, rely=0.1, relheight=0.6, relwidth=0.5)
-        canvas2.create_image(225, 210, image=my_img)
-        canvas2.my_img = my_img
-
-        # KILLING WIDGET AFTER ANOTHER BUTTON
-
-        for widget in pierwszy_frame.winfo_children():
-            widget.destroy()
-        for widget in drugi_frame.winfo_children():
-            widget.destroy()
-        for widget in trzeci_frame.winfo_children():
-            widget.destroy()
-
-        # TEXT LABEL
-        # FULL DESCRIPTION
-        text_label = tk.Label(pierwszy_frame, text=FULL_JUPITER_DESC, bg='#121212', fg='white')
-        text_label.pack()
-
-        # FACTS
-        text2_label = tk.Label(drugi_frame, text=JUPITER_FACT, bg='#121212', fg='white')
-        text2_label.pack()
-
-        # LINKS
-        text3_label = tk.Label(trzeci_frame, text="Przydatne linki:", font=('Arial', 15), bg='#121212', fg='white')
-        text3_label.pack()
-
-        # HYPERLINK FUNCTION
-        link = tk.Label(trzeci_frame, text="Wikipedia", font=('Helveticabold', 10), bg='#121212', fg='green',
-                        cursor="hand2")
-        link.pack()
-        link.bind("<Button-1>", lambda e: callback("https://pl.wikipedia.org/wiki/Jowisz"))
-
-    if type == options_list_planets[5]:
-
-        # IMAGE DISPLAY
-
-        canvas2 = Canvas(root, width=400, height=400, bg='#171717', bd=0, highlightthickness=0, relief='ridge')
-        canvas2.pack()
-        my_img = ImageTk.PhotoImage(Image.open("Saturn.png"))
-        canvas2.place(relx=0.05, rely=0.1, relheight=0.6, relwidth=0.5)
-        canvas2.create_image(225, 210, image=my_img)
-        canvas2.my_img = my_img
-
-        # KILLING WIDGET AFTER ANOTHER BUTTON
-
-        for widget in pierwszy_frame.winfo_children():
-            widget.destroy()
-        for widget in drugi_frame.winfo_children():
-            widget.destroy()
-        for widget in trzeci_frame.winfo_children():
-            widget.destroy()
-
-        # TEXT LABEL
-        # FULL DESCRIPTION
-        text_label = tk.Label(pierwszy_frame, text=FULL_SATURN_DESC, bg='#121212', fg='white')
-        text_label.pack()
-
-        # FACTS
-        text2_label = tk.Label(drugi_frame, text=SATURN_FACT, bg='#121212', fg='white')
-        text2_label.pack()
-
-        # LINKS
-        text3_label = tk.Label(trzeci_frame, text="Przydatne linki:", font=('Arial', 15), bg='#121212', fg='white')
-        text3_label.pack()
-
-        # HYPERLINK FUNCTION
-        link = tk.Label(trzeci_frame, text="Wikipedia", font=('Helveticabold', 10), bg='#121212', fg='green',cursor="hand2")
-        link.pack()
-        link.bind("<Button-1>", lambda e: callback("https://pl.wikipedia.org/wiki/Saturn"))
-
-    if type == options_list_planets[6]:
-
-        # IMAGE DISPLAY
-
-        canvas2 = Canvas(root, width=400, height=400, bg='#171717', bd=0, highlightthickness=0, relief='ridge')
-        canvas2.pack()
-        my_img = ImageTk.PhotoImage(Image.open("Uran.png"))
-        canvas2.place(relx=0.05, rely=0.1, relheight=0.6, relwidth=0.5)
-        canvas2.create_image(225, 210, image=my_img)
-        canvas2.my_img = my_img
-
-        # KILLING WIDGET AFTER ANOTHER BUTTON
-
-        for widget in pierwszy_frame.winfo_children():
-            widget.destroy()
-        for widget in drugi_frame.winfo_children():
-            widget.destroy()
-        for widget in trzeci_frame.winfo_children():
-            widget.destroy()
-
-        # TEXT LABEL
-        # FULL DESCRIPTION
-        text_label = tk.Label(pierwszy_frame, text=FULL_URANUS_DESC, bg='#121212', fg='white')
-        text_label.pack()
-
-        # FACTS
-        text2_label = tk.Label(drugi_frame, text=URANUS_FACT, bg='#121212', fg='white')
-        text2_label.pack()
-
-        # LINKS
-        text3_label = tk.Label(trzeci_frame, text="Przydatne linki:", font=('Arial', 15), bg='#121212', fg='white')
-        text3_label.pack()
-
-        # HYPERLINK FUNCTION
-        link = tk.Label(trzeci_frame, text="Wikipedia", font=('Helveticabold', 10), bg='#121212', fg='green',cursor="hand2")
-        link.pack()
-        link.bind("<Button-1>", lambda e: callback("https://pl.wikipedia.org/wiki/Uran"))
-
-    if type == options_list_planets[7]:
-
-        # IMAGE DISPLAY
-
-        canvas2 = Canvas(root, width=400, height=400, bg='#171717', bd=0, highlightthickness=0, relief='ridge')
-        canvas2.pack()
-        my_img = ImageTk.PhotoImage(Image.open("Neptun.png"))
-        canvas2.place(relx=0.05, rely=0.1, relheight=0.6, relwidth=0.5)
-        canvas2.create_image(225, 210, image=my_img)
-        canvas2.my_img = my_img
-
-        # KILLING WIDGET AFTER ANOTHER BUTTON
-
-        for widget in pierwszy_frame.winfo_children():
-            widget.destroy()
-        for widget in drugi_frame.winfo_children():
-            widget.destroy()
-        for widget in trzeci_frame.winfo_children():
-            widget.destroy()
-
-        # TEXT LABEL
-        # FULL DESCRIPTION
-        text_label = tk.Label(pierwszy_frame, text=FULL_NEPTUNE_DESC, bg='#121212', fg='white')
-        text_label.pack()
-
-        # FACTS
-        text2_label = tk.Label(drugi_frame, text=NEPTUNE_FACT, bg='#121212', fg='white')
-        text2_label.pack()
-
-        # LINKS
-        text3_label = tk.Label(trzeci_frame, text="Przydatne linki:", font=('Arial', 15), bg='#121212', fg='white')
-        text3_label.pack()
-
-        # HYPERLINK FUNCTION
-        link = tk.Label(trzeci_frame, text="Wikipedia", font=('Helveticabold', 10), bg='#121212', fg='green',cursor="hand2")
-        link.pack()
-        link.bind("<Button-1>", lambda e: callback("https://pl.wikipedia.org/wiki/Neptun"))
 
 
 
 #Tło aplikacji
 HEIGHT = 700
 WIDTH = 900
-canvas = tk.Canvas(root, height = HEIGHT, width = WIDTH, bg = '#171717')
+canvas = tk.Canvas(root, height = HEIGHT, width = WIDTH, bg = '#1D2022')
 canvas.pack()
 
 #Pola wyznaczone dla tekstu
 pierwszy_frame = tk.Frame(root, bg='#121212')
-pierwszy_frame.place(relx=0.6, rely=0.1, relheight=0.6, relwidth=0.35)
+pierwszy_frame.place(relx=0.51, rely=0.1, relheight=0.685, relwidth=0.48)
 
 drugi_frame = tk.Frame(root, bg='#121212')
-drugi_frame.place(relx=0.05, rely=0.72, relheight=0.2, relwidth=0.55)
+drugi_frame.place(relx=0.01, rely=0.79, relheight=0.2, relwidth=0.50)
 
 trzeci_frame = tk.Frame(root, bg='#121212')
-trzeci_frame.place(relx=0.61, rely=0.72, relheight=0.2, relwidth=0.33)
+trzeci_frame.place(relx=0.51, rely=0.79, relheight=0.2, relwidth=0.48)
+
+#IMAGE DISPLAY CANVAS
+canvas2 = Canvas(root, width=400, height=400, bg='#1D2022', bd=0, highlightthickness=0, relief='ridge')
+canvas2.pack()
+canvas2.place(relx=0.01, rely=0.1, relheight=0.6, relwidth=0.5)
 
 #Lista planet układu słonecznego
 options_list_planets = [
@@ -418,6 +203,7 @@ clicked.set(options_list_planets[0])
 drop = OptionMenu(root, clicked, *options_list_planets)
 drop.place(relx=0.3, rely=0.01, relheight=0.05, relwidth=0.1)
 
+
 #Przycisk potwierdzenia wyboru z panelu z planetami
 button = tk.Button(canvas, text = "Potwierdź")
 button.bind('<Button-1>', show)
@@ -432,4 +218,6 @@ text_welcome_label2 = "Kosmiczny katalog v1.0 \n aplikacja wciąż jest w trakci
 welcome_label2 = tk.Label(drugi_frame, text = text_welcome_label2, bg='#121212', fg='white')
 welcome_label2.pack()
 
+
 root.mainloop()
+
