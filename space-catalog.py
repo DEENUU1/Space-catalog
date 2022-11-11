@@ -62,9 +62,14 @@ FULL_SATURN_DESC = 'Jest to druga co do wielkości planeta układu słoneczego. 
 SATURN_FACT = "Misje kosmiczne przeprowadzone na Saturnie:\n1. Program Pioneer: Pioneer 11\n2. Program Voyager: " \
               "Voyager 1, Voyager 2\n3. Cassini-Huygens\n4. Drogonfly "
 
-FULL_VENUS_DESC = 'Jest to jedna z czterech planet skalistych w Układzie Słonecznym. \n Pod względem masy oraz ' \
-                  'wielkości jest bardzo podobna do Ziemi. \n Średnica Wenus jest zaledwie 650 kilometrów mniejsza od ' \
-                  'ziemskiej. \n A jej masa jest równa 81.5% masy Ziemi. '
+FULL_VENUS_DESC = 'Wenus to druga pod względem odległości od Słońca planeta\n Układu Słonecznego. Jest 3 pod względem ' \
+                  'jasności ciałem niebieskim\n widocznym na niebue, po Słońcu i Księżycu. Nazwa planety wzięła\n się od ' \
+                  'rzymskiej bogini miłości, Wenus.' \
+                  'Ciało centralne: Słońce\nObwód orbity: 6.80x10^11m\nOkres orbitalny: 224,701 dni ziemskich' \
+                  '\nTyp planety: planeta skalista\nMasa: 4,867x10^24 kg\nPromień równikowy: 6051,8' \
+                  '\nPrzyśpieszenie grawitacyjne: 8,87 m/s^2\nPrędkość ucieczki: 10,36km/s' \
+                  '\nSkład atmosfery: Dwutlenek węgla: 96.5%, Azot: 3.5%, Pozostałe:\ndwutlenek siarki, argon,para wodna' \
+                  'tlenek węgla, hel, neon'
 
 VENUS_FACT = "Misje kosmiczne przeprowadzane na Wenus:\n1. Program Mariner: Mariner 1, Mariner 2, Mariner 5, " \
              "Mariner 10\n2. Program Pioneer: Pioneer 12, Pioneer 13\n 3. Magellan "
@@ -90,7 +95,7 @@ MERCURY_FACT = "Misje kosmiczne przeprowadzane na Mercurym:\n1. Mariner 10\n2. M
 
 
 #OPENING PANDAS
-dataframe = pd.read_excel('wikidata.xlsx')
+
 
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
