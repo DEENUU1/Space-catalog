@@ -63,7 +63,12 @@ MARS_FACT = "Misje kosmiczne przeprowadzane na Marsie:\n1. Program Mariner: Mari
 
 FULL_SATURN_DESC = 'Jest to druga co do wielkości planeta układu słoneczego. \n Masa Satruna jest około 95 razy ' \
                    'większa niż masa Ziemi. \n Ze względu na gazową strukturę, jego gęstość nie przekracza gęstości ' \
-                   'wody. \n Doba na tej planecie trwa bardzo krótko bo zaledwie 10.23 godziny '
+                   'wody. \n Doba na tej planecie trwa bardzo krótko bo zaledwie 10.23 godziny ' \
+                   '\nCiało centralne: Słońce\nTyp planety: gazowy olbrzym\nMasa: 5.6834x10^26kg' \
+                   '\nPromień: 58 232km\nOkres obrotu: 10.656h\nPrzyśpieszenie grawitacyjne: 10.44m/s^2' \
+                   '\nSatelity naturalne: 82 księżyce' \
+                   '\nSkład atmosfery: Wodór: 96.3%, Hel: 3.25%, Metan: 0.45%' \
+                   '\nPozostałe: amoniak, HD, etan, \nAerozole atmosferyczne: lód, NH3, lód H20'
 
 SATURN_FACT = "Misje kosmiczne przeprowadzone na Saturnie:\n1. Program Pioneer: Pioneer 11\n2. Program Voyager: " \
               "Voyager 1, Voyager 2\n3. Cassini-Huygens\n4. Drogonfly "
