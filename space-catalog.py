@@ -45,8 +45,14 @@ FULL_NEPTUNE_DESC = "Gazowy olbrzym, najdalsza od Słońca planeta w Układzie S
                     "\nSatelity naturalne: 14\nSkład atmosfery: Wodór: 80%, Hel: 19%, Metan: 1.5%, Pozostałe: HD, etan"
 NEPTUNE_FACT = "Misje kosmiczne przeprowadzone na Neptunie:\n1. Program Voyager: Voyager 2"
 
-FULL_MARS_DESC = "Czwarta od Słońca planeta Układu słonecznego. Krąży między orbitą Ziemi a pasem planetoid. " \
-                 "Nazwana została od rzymskiego boga wojny - Marsa. "
+FULL_MARS_DESC = "Mars to czwarta od Słońca planeta Układu Słonecznego. Krąży \nmiędzy orbitą Ziemi a pasem planetoid" \
+                 "dzielącym go od orbity Jowisza. Planeta \nzostała nazwana od imienai rzymskiego boga wojny - Marsa" \
+                 "\nCiało centralne: Słońce\nTyp planety: planeta skalista\nMasa: 6.4171x10^23kg\nPromień: 3389.5km" \
+                 "\nOkres obrotu: 868.22km/h\nPrzyśpieszenie grawitacyjne: 3.71m/s^2\nSatelity naturalne: 2" \
+                 "\nSkład atmosfery: Dwutlenek węgla: 95.32%, Azot: 2.7%, Argon: 1.6%, Tlen: 0.13," \
+                 "\nTlenek węgla: 0.07%, Pozostałe: para wodna, tlenek azotu, \nneon, HDO, krypton, ksenon"
+
+
 MARS_FACT = "Misje kosmiczne przeprowadzane na Marsie:\n1. Program Mariner: Mariner 4, Mariner 6 i 7, Mariner 8, " \
             "Mariner 9\n2. Program Viking: Viking 1, Viking 2\n3. Mars Exploration Rover: Opportunity, Spirit\n4. " \
             "Mars Science Laboratory: Curiosity Rover\n5. Mars Pathfinder: Sojourner, Lądownik Mars " \
