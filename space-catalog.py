@@ -11,7 +11,6 @@ from tkcalendar import DateEntry
 from bs4 import BeautifulSoup
 
 
-
 #PLANET DESCRIPTION
 FULL_EARTH_DESC = "Jest to druga co do wielkości planeta układu słonecznego. Ziemia, 3  licząc od \nSłońca, oraz 5 pod " \
                   "względem wielkości \nplaneta Układu Słonecznego. Pod względem średnicy, masy \noraz gęstości jest " \
@@ -429,9 +428,15 @@ def showapp(event):
 
         link.bind("<Button-1>", lambda e: callback(image_url))
         link.pack()
-
+        print(image_url)
         link_2.bind("<Button-1>", lambda e: callback("https://apod.nasa.gov/apod/astropix.html"))
         link_2.pack()
+
+        response = requests.get(image_url)
+        if response.status_code:
+            fp = open('nasaapodimage.png', 'wb')
+            fp.write(response.content)
+            fp.close()
 
     if type == options_list_apps[1]:
 
