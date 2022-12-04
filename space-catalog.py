@@ -393,7 +393,7 @@ def showapp(event):
         link_2 = tk.Label(trzeci_frame, text="Nasa zdjęcie dnia", font=('Helveticabold', 10), bg='#121212', fg='green',
                           cursor="hand2")
 
-        api_key = '9oNp1IUEQZA4rGJDm4Edobi4xoarJruveeW9vod0'
+        api_key = 'YOUR_API_KEY'
         URL_APOD = 'https://api.nasa.gov/planetary/apod'
 
         date = showdate()
